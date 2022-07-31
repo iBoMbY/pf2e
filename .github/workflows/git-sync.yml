@@ -1,0 +1,16 @@
+on: 
+  push:
+    branches:
+      - 'remotes/origin/master'
+jobs:
+  git-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git-sync
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "foundryvtt/pf2e"
+          source_branch: "master"
+          destination_repo: "iBoMbY/pf2e"
+          destination_branch: "master"
+          ssh_private_key: ${{ secrets.SSH_KEY }}
